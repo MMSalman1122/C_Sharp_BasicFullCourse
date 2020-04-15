@@ -1,37 +1,54 @@
 using System;
 
-namespace HelloWorld
+namespace Calculator
 {
-    public class Hello
+    class Program
     {
-        public static void Main()
+        static void Main(string[] args)
         {
-            byte a=1;
-            int b=a;
-            Console.WriteLine(b);
-            
-            int c=1;
-            byte d= (byte)c;
-            Console.WriteLine(d);
-            
-            byte num3=255;
-            num3 +=2; 
-            Console.WriteLine(num3); //=1 shows overflow
-            
-            var num="1234";
-            int e=Convert.ToInt32(num);
-            Console.WriteLine(e);
-            
-            //without try catch it overflows and app crashes.
-            try
+            double num1=0;
+            double num2=0;
+            char opperator;
+            double result=0;
+
+            Console.WriteLine("Enter the first number: \n");
+            num1=Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Enter the second number: \n");
+            num2 = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Enter operator: \n");
+            opperator =Convert.ToChar(Console.ReadLine());
+
+            if (opperator =='+')
             {
-                byte f=Convert.ToByte(num); 
-                Console.WriteLine(f);
+                result = num1 + num2;
             }
-            catch (Exception)
+            else if (opperator == '-')
             {
-                Console.WriteLine("No cant be converted");
+                result = num1 - num2;
             }
+            else if (opperator == '*')
+            {
+                result = num1 * num2;
+            }
+            else if (opperator=='/')
+            {
+                try
+                {
+                    result = num1 / num2;
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("Division is not possible.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Enter valid opperator.");
+            }
+
+            Console.WriteLine(result);
+            while (true)
+            { }
             
         }
     }
