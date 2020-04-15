@@ -1,35 +1,36 @@
 using System;
-using classes.math;
-namespace classes
-{   public class cal
-    {   
-        public void sum(int a, int b)
-        {
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-            Console.WriteLine("Sum is:" + (a + b));
-        }
-    public class Person
-    {
-        public string FirstName;
-        public string LastName;
-
-        public void intro()
-        {
-            Console.WriteLine("First name " + FirstName + " " + "Last Name " + LastName);
-        }
+namespace test
+{
     class Program
     {
         static void Main(string[] args)
         {
-            Person p1 = new Person();
-            p1.FirstName = "Salman";
-            p1.LastName = "Ali";
-            p1.intro();
+            var numbers = new int[3];
+            numbers[0] = 1;
+            numbers[1] = 2;
+            numbers[2] = 3;
 
-            cal obj = new cal();
-            obj.sum(3, 8);
-            
-            while(true)
+            Console.WriteLine(numbers[0] + numbers[1] + numbers[2]);
+
+            string list = string.Join(",", numbers);
+            Console.WriteLine(list);
+
+            string FirstName = "Salm";
+            String LastName = "Ali";
+            Console.WriteLine(FirstName[2]);
+
+            string name = string.Format("{1} {0}", FirstName, LastName);
+            Console.WriteLine(name);
+
+            string name1 = string.Format("{0} {1}", FirstName, LastName);
+            Console.WriteLine(name1);
+
+            while (true)
             {
 
             }
