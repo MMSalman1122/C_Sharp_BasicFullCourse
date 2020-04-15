@@ -6,33 +6,26 @@ using System.Threading.Tasks;
 
 namespace test
 {
-    public enum ShippingMethod
-    {
-        Regular=1,
-        Registered=2,
-        Express=3
-    }
+    
     class Program
     {
         static void Main(string[] args)
         {
-            var method = ShippingMethod.Express;
+            // strurcture are valure type
+            var num1 = 2;
+            var num2 = num1;
+            num2++;
 
-            Console.WriteLine(method);
+            Console.WriteLine("num1:{0}, num2:{1}", num1,num2);
 
-            // method to number
-            Console.WriteLine((int)method);
+            // classes are reference type
 
-            // number to method
-            var num = 3;
-            Console.WriteLine((ShippingMethod)num);
+            var array1 = new int[3] { 1, 2, 3 };
+            var array2 = array1;
 
-            //metho to string
-            Console.WriteLine(method.ToString());
+            array2[2] = 0;
 
-            //parsing
-            var method_name = "Express";
-            var ShippingMethod1=(ShippingMethod)Enum.Parse(typeof(ShippingMethod), method_name);
+            Console.WriteLine("arr1[2]:{0}, arr2[2]:{1}", array1[2], array2[2]);
 
             while (true)
             {
