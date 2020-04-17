@@ -1,1 +1,1 @@
-section 5 is completed
+section 6 lecture 51 and 52 completed
