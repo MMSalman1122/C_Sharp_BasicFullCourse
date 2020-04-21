@@ -9,32 +9,35 @@ namespace test
         public static void Main()
         {
             var sentence = "This is very very very very very very very very very very very very very very very very very very very long line";
+            var summary = summarizeText(sentence);
+            Console.WriteLine(summary);
+            Console.ReadLine();            
+        }
 
-            const int maxLength = 20;
+        static string summarizeText(string text, int maxLength=20)
+        { 
 
-            if (sentence.Length<maxLength)
+            if (text.Length < maxLength)
             {
-                Console.WriteLine(sentence);
+                return text;
             }
             else
             {
-                
-                var words = sentence.Split(' ');
+
+                var words = text.Split(' ');
                 var totalChar = 0;
                 var summaryword = new List<string>();
-                foreach(var word in words)
+                foreach (var word in words)
                 {
                     summaryword.Add(word);
                     totalChar += word.Length + 1;
-                    if(totalChar>maxLength)
+                    if (totalChar > maxLength)
                     {
                         break;
                     }
                 }
 
-                var summary = String.Join(" ", summaryword) + "...";
-                Console.WriteLine(summary);
-                Console.ReadLine();
+                return String.Join(" ", summaryword) + "...";
 
             }
         }
