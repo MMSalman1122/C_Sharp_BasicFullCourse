@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace test
@@ -7,18 +10,13 @@ namespace test
     {
         public static void Main()
         {
-            var path = @"c:\\temp\\myfile.jpg";
-            File.Copy("c:\\temp\\myfile.jpg","d:\\temp\\myfile.jpg", true); //true is for replace file 
-            File.Delete(path);
-            if (File.Exists(path))
-            {
-                //
-            }
-            var contant = File.ReadAllText(path);
-            var fileInfo = new FileInfo(path);
-            fileInfo.CopyTo("...");
-            fileInfo.Delete;
+            Directory.CreateDirectory(@"C:\temp\folder1");
 
+            var files=Directory.GetFiles(@"C:\temp\folder1" , "*,*" ,SearchOption.AllDirectories);
+            foreach(var file in files)
+            {
+                Console.WriteLine(file);
+            }
 
             Console.ReadLine();
         }
