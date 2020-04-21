@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace test
 {
@@ -8,38 +9,28 @@ namespace test
     {
         public static void Main()
         {
-            var sentence = "This is very very very very very very very very very very very very very very very very very very very long line";
-            var summary = summarizeText(sentence);
-            Console.WriteLine(summary);
-            Console.ReadLine();            
-        }
+            var builder = new StringBuilder();
+            builder.Append('-', 10);
+            builder.AppendLine();
+            builder.Append("Header");
+            builder.AppendLine();
+            builder.Append('-', 10);
+            Console.WriteLine(builder);
 
-        static string summarizeText(string text, int maxLength=20)
-        { 
 
-            if (text.Length < maxLength)
-            {
-                return text;
-            }
-            else
-            {
+            builder.Replace('-', '+');
+            Console.WriteLine(builder);
+            builder.Remove(0,10);
+            Console.WriteLine(builder);
+            builder.Insert(0, new string('-', 10));
+            Console.WriteLine(builder);
 
-                var words = text.Split(' ');
-                var totalChar = 0;
-                var summaryword = new List<string>();
-                foreach (var word in words)
-                {
-                    summaryword.Add(word);
-                    totalChar += word.Length + 1;
-                    if (totalChar > maxLength)
-                    {
-                        break;
-                    }
-                }
+            var builder1 = new StringBuilder("Hello world");
+            builder1.AppendLine();
+            builder1.Append('-', 10);
+            Console.WriteLine(builder1);
 
-                return String.Join(" ", summaryword) + "...";
-
-            }
+            Console.ReadLine();
         }
      
     }
